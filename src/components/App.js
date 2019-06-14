@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import youtube_api, {API_KEY} from '../apis/youtube';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 
 class App extends Component {
 
   state = {
-    videos : []
+    videos : [],
+    selectedVideo: null
   }
 
   getSearchResults = async (term) => {
@@ -19,15 +21,24 @@ class App extends Component {
       }
     });
     this.setState({
-      videos: res.data.items
+      videos: res.data.items,
+      selectedVideo: res.data.items[0]
+    })
+  }
+
+  getSelectedVideo = (video) => {
+    this.setState({
+      selectedVideo: video
     })
   }
 
   render() {
+
     return (
       <div className="ui container">
         <SearchBar  getSearchResults={this.getSearchResults}/>
-        <VideoList videos = {this.state.videos} />
+        <VideoDetail video={this.state.selectedVideo} /> 
+        <VideoList videos = {this.state.videos} getSelectedVideo={this.getSelectedVideo}/>
       </div>
     )
   }
