@@ -1,3 +1,3 @@
-# React Youtube
+# react-tube
 
-## React Youtube is a minimal implementation of youtube in react.
+## react-tube is a minimal implementation of youtube in react.

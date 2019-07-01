@@ -1,11 +1,10 @@
 {
-  "name": "react-youtube",
-  "version": "0.1.0",
-  "homepage": "http://vyasriday.github.io/react-youtube",
+  "name": "react-tube",
+  "version": "1.0.0",
+  "homepage": "http://vyasriday.github.io/react-tube",
   "private": true,
   "dependencies": {
     "axios": "^0.18.1",
-    "eslint": "^5.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
