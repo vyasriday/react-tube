@@ -1,17 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './VideoItem.css';
-const VideoItem = ({video, getSelectedVideo}) => {
+import { getSelectedVideo } from '../actions';
+
+const VideoItem = ({ video, getSelectedVideo }) => {
   return (
     <div className="video-item item" onClick={() => getSelectedVideo(video)}>
-      <img className="ui image" src={video.snippet.thumbnails.medium.url}  alt={video.snippet.title}/>
+      <img
+        className="ui image"
+        src={video.snippet.thumbnails.medium.url}
+        alt={video.snippet.title}
+      />
       <div className="content">
-        <a className="header">{video.snippet.title}</a> 
-        <div className="description">
-          {video.snippet.description}
-        </div>
+        <button className="header">{video.snippet.title}</button>
+        <div className="description">{video.snippet.description}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default VideoItem;
+export default connect(
+  null,
+  { getSelectedVideo }
+)(VideoItem);

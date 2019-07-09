@@ -1,22 +1,29 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
-const VideoDetail = ({video}) =>  {
-
+const VideoDetail = ({ video }) => {
   if (video === null) {
-    return <h3>Search For Videos !!!</h3>
+    return <h3>Search For Videos !!!</h3>;
   }
-  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
+  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
   return (
     <div>
       <div className="ui embed">
-        <iframe src={videoSrc} title={video.snippet.title} ></iframe>
+        <iframe src={videoSrc} title={video.snippet.title} />
       </div>
       <div className="ui segement">
-        <h4 className="ui header">{video.snippet.title}</h4>{}
+        <h4 className="ui header">{video.snippet.title}</h4>
+        {}
         <p className="description">{video.snippet.description}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default VideoDetail;
+const mapStateToProps = state => {
+  return {
+    video: state.selectedVideo
+  };
+};
+
+export default connect(mapStateToProps)(VideoDetail);

@@ -1,38 +1,33 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
-class SearchBar extends Component {
+import { getVideos } from './../actions';
 
-  state = {
-    searchTerm: ''
-  }
+const SearchBar = ({ getVideos }) => {
+  const [searchTerm, updateSearchTerm] = useState('');
 
-  onInputChange = (event) => {
-    this.setState({
-      searchTerm: event.target.value
-    });
-  }
+  return (
+    <div className="search-bar ui segment">
+      <form
+        className="ui form"
+        onSubmit={event => {
+          event.preventDefault();
+          getVideos(searchTerm);
+        }}
+      >
+        <input
+          className="field"
+          type="text"
+          value={searchTerm}
+          placeholder="Search For Videos"
+          onChange={event => updateSearchTerm(event.target.value)}
+        />
+      </form>
+    </div>
+  );
+};
 
-  onFormSubmit = (event) => {
-    event.preventDefault();
-    this.props.getSearchResults(this.state.searchTerm);
-  } 
-
-  render() {
-    return (
-      <div className="search-bar ui segment">
-        <form className="ui form" onSubmit={this.onFormSubmit}>
-          <input 
-            className="field"
-            type="text" 
-            value={this.state.searchTerm} 
-            placeholder="Search For Videos" 
-            onChange={this.onInputChange}
-          />
-        </form>        
-      </div>
-    )
-  }
-}
-
-export default SearchBar;
-
+export default connect(
+  null,
+  { getVideos }
+)(SearchBar);

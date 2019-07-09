@@ -6,6 +6,13 @@
 
 .video-item.item > .ui.image img {
   max-width: 180px;
-
 }
 
+button {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin-bottom: 4px !important;
+  color: #0000ffbf !important;
+}
