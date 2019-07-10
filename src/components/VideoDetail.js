@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const VideoDetail = ({ video }) => {
   if (video === null) {
-    return <h3>Search For Videos !!!</h3>;
+    return <div />;
   }
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
   return (

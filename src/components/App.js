@@ -1,17 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import SearchBar from './SearchBar';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
+import RecentVideos from './RecentVideos';
+import Header from './Header';
 
 const App = () => {
   return (
-    <div className="ui container">
-      <SearchBar />
+    <AppWrapper>
+      <Header />
       <VideoDetail />
       <VideoList />
-    </div>
+      <RecentVideos />
+    </AppWrapper>
   );
 };
+
+const AppWrapper = styled.div`
+  width: 100%;
+  height: auto;
+`;
 
 export default App;

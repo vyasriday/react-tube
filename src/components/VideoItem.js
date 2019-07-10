@@ -2,19 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './VideoItem.css';
-import { getSelectedVideo } from '../actions';
+import { getSelectedVideo, addToRecentlyPlayedVideos } from '../actions';
 
-const VideoItem = ({ video, getSelectedVideo }) => {
+const VideoItem = ({ video, getSelectedVideo, addToRecentlyPlayedVideos }) => {
   return (
-    <div className="video-item item" onClick={() => getSelectedVideo(video)}>
+    <div
+      onClick={() => {
+        getSelectedVideo(video);
+        addToRecentlyPlayedVideos(video);
+      }}
+    >
       <img
-        className="ui image"
         src={video.snippet.thumbnails.medium.url}
         alt={video.snippet.title}
       />
       <div className="content">
-        <button className="header">{video.snippet.title}</button>
-        <div className="description">{video.snippet.description}</div>
+        <h5>{video.snippet.title}</h5>
+        <div>{video.snippet.description}</div>
       </div>
     </div>
   );
@@ -22,5 +26,5 @@ const VideoItem = ({ video, getSelectedVideo }) => {
 
 export default connect(
   null,
-  { getSelectedVideo }
+  { getSelectedVideo, addToRecentlyPlayedVideos }
 )(VideoItem);

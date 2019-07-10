@@ -1,11 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import VideoItem from './VideoItem';
 
-const VideoList = ({ videos, getSelectedVideo }) => {
+const styles = {
+  display: 'flex',
+  overflow: 'scroll'
+};
+
+const RecentVideos = ({ videos }) => {
+  if (!videos.length) {
+    return <h3>Your Recently Viewed Videos Will Appear Here</h3>;
+  }
   return (
-    <div>
+    <div style={styles}>
+      <h2>Recently Played</h2>
       {videos.map(video => (
         <VideoItem
           video={video}
@@ -18,8 +26,8 @@ const VideoList = ({ videos, getSelectedVideo }) => {
 
 const mapStateToProps = state => {
   return {
-    videos: state.videos
+    videos: state.recentVideos
   };
 };
 
-export default connect(mapStateToProps)(VideoList);
+export default connect(mapStateToProps)(RecentVideos);
