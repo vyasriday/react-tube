@@ -2,7 +2,8 @@ import {
   GET_VIDEOS,
   GET_SELECTED_VIDEO,
   SAVE_RECENTLY_PLAYED,
-  TOGGLE_SIDEBAR
+  TOGGLE_SIDEBAR,
+  TRENDING
 } from './../actions';
 import { combineReducers } from 'redux';
 
@@ -34,15 +35,25 @@ const recentlyPlayedVideos = (state = [], action) => {
 };
 
 const toggleSidebar = (state = false, action) => {
-  if (action.type == TOGGLE_SIDEBAR) {
+  if (action.type === TOGGLE_SIDEBAR) {
     return !state;
   }
   return state;
+};
+
+const trendingVideos = (state = [], action) => {
+  switch (action.type) {
+    case TRENDING:
+      return [...state, ...action.payload];
+    default:
+      return state;
+  }
 };
 
 export default combineReducers({
   videos: videosReducer,
   selectedVideo: selectedVideoReducer,
   recentVideos: recentlyPlayedVideos,
-  sidebarToggle: toggleSidebar
+  sidebarToggle: toggleSidebar,
+  trendingVideos: trendingVideos
 });

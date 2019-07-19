@@ -20,6 +20,9 @@ const SidebarDiv = styled.div`
   overflow: hidden;
   transition: all 500ms;
   width: 170px;
+  z-index: 1000;
+  position: absolute;
+  background: white;
   ul {
     padding: 0;
     list-style: none;

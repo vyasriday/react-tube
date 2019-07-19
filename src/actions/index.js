@@ -4,6 +4,7 @@ export const GET_VIDEOS = 'GET_VIDEOS';
 export const GET_SELECTED_VIDEO = 'GET_SELECTED_VIDEO';
 export const SAVE_RECENTLY_PLAYED = 'SAVE_RECENTLY_PLAYED';
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
+export const TRENDING = 'TRENDING';
 
 export const getVideos = term => {
   return async function(dispatch) {
@@ -34,6 +35,24 @@ export const addToRecentlyPlayedVideos = video => {
   return {
     type: SAVE_RECENTLY_PLAYED,
     payload: video
+  };
+};
+
+export const getTrendingVideos = () => {
+  return async function(dispatch) {
+    const res = await youtube_api.get('/videos', {
+      params: {
+        key: API_KEY,
+        part: 'snippet',
+        chart: 'mostPopular',
+        regionCode: 'IN',
+        maxResults: 20
+      }
+    });
+    dispatch({
+      type: TRENDING,
+      payload: res.data.items
+    });
   };
 };
 
