@@ -12,19 +12,28 @@ class Trending extends Component {
 
   render() {
     return (
-      <TrendingDiv>
+      <VideoListDiv>
+        <h2>Trending</h2>
+        <hr />
         {this.props.videos.map(video => (
           <VideoItem video={video} key={video.id} />
         ))}
-      </TrendingDiv>
+      </VideoListDiv>
     );
   }
 }
 
-const TrendingDiv = styled.div`
+export const VideoListDiv = styled.div`
+  h2 {
+    color: steelblue;
+    margin-bottom: 0px;
+  }
   display: flex;
   flex-direction: column;
-  margin-top: 16px;
+  margin: 32px 16px;
+  @media (max-width: 700px) {
+    margin: 16px 8px;
+  }
 `;
 
 const mapStateToProps = state => ({
