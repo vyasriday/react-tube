@@ -5,14 +5,13 @@ import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 import RecentVideos from './RecentVideos';
 import Header from './Header';
+import Sidebar from './Sidebar';
 
-const App = () => {
+const App = ({ sidebar }) => {
   return (
     <AppWrapper>
       <Header />
-      <VideoDetail />
-      <VideoList />
-      <RecentVideos />
+      <Sidebar />
     </AppWrapper>
   );
 };

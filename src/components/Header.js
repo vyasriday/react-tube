@@ -1,12 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
+import { connect } from 'react-redux';
 
-const Header = () => {
+import SearchBar from './SearchBar';
+import { toggleSidebar } from '../actions';
+
+const Header = ({ toggleSidebar, toggle }) => {
   return (
     <HeaderDiv>
-      <div className="hamburger">
-        <i className="fas fa-bars" />
+      <div className="hamburger" onClick={() => toggleSidebar()}>
+        {toggle ? (
+          <i className="fas fa-times" />
+        ) : (
+          <i className="fas fa-bars" />
+        )}
       </div>
       <div className="search-bar">
         <SearchBar />
@@ -20,17 +27,24 @@ const HeaderDiv = styled.div`
   height: 48px;
   align-items: center;
   box-shadow: 0px 1px 2px grey;
-  margin-bottom: 1rem;
   .hamburger {
-    min-width: 44px;
+    width: 44px;
     margin-left: 4px;
+    cursor: pointer;
+    margin-right: 24px;
+  }
+  .hamburger > i {
     font-size: 24px;
     color: steelblue;
-    cursor: pointer;
+    margin-left: 16px;
   }
   .search-bar {
-    min-width: calc(100vw - 50px);
+    min-width: calc(100vw - 100px);
   }
 `;
 
-export default Header;
+const mapStateToProps = state => ({ toggle: state.sidebarToggle });
+export default connect(
+  mapStateToProps,
+  { toggleSidebar }
+)(Header);

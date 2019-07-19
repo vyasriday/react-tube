@@ -44,11 +44,6 @@ const StyledForm = styled.form`
       width: 88%;
     }
   }
-  @media (max-width: 460px) {
-    input {
-      width: 96%;
-    }
-  }
 `;
 
 export default connect(
