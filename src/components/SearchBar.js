@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 import { getVideos } from './../actions';
 
-const SearchBar = ({ getVideos }) => {
+const SearchBar = ({ getVideos, history }) => {
   const [searchTerm, updateSearchTerm] = useState('');
 
   return (
@@ -13,6 +14,7 @@ const SearchBar = ({ getVideos }) => {
         onSubmit={event => {
           event.preventDefault();
           getVideos(searchTerm);
+          history.push(`/${searchTerm}`);
         }}
       >
         <input
@@ -20,6 +22,7 @@ const SearchBar = ({ getVideos }) => {
           value={searchTerm}
           placeholder="Search For Videos"
           onChange={event => updateSearchTerm(event.target.value)}
+          required
         />
       </StyledForm>
     </div>
@@ -49,4 +52,4 @@ const StyledForm = styled.form`
 export default connect(
   null,
   { getVideos }
-)(SearchBar);
+)(withRouter(SearchBar));

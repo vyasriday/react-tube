@@ -20,8 +20,9 @@ const VideoItem = ({ video, getSelectedVideo, addToRecentlyPlayedVideos }) => {
       </div>
       <div className="content">
         <h4>{video.snippet.title}</h4>
-        <p>{video.snippet.description.substring(0, 200)}...</p>
+        <p>{video.snippet.description.substring(0, 150)}...</p>
       </div>
+      {/* <i className="far fa-bookmark" /> */}
     </VideoDiv>
   );
 };
@@ -31,6 +32,7 @@ const VideoDiv = styled.div`
   margin: 16px 0px;
   box-shadow: 2px 2px 6px gray;
   border-radius: 4px;
+  cursor: pointer;
   .thumbnail {
     display: flex;
     align-items: center;
@@ -45,6 +47,10 @@ const VideoDiv = styled.div`
     h4 {
       color: #065696;
     }
+  }
+  i.fa-bookmark {
+    font-size: 24px;
+    margin-right: 1px;
   }
   @media (max-width: 650px) {
     .content {

@@ -3,7 +3,8 @@ import {
   GET_SELECTED_VIDEO,
   SAVE_RECENTLY_PLAYED,
   TOGGLE_SIDEBAR,
-  TRENDING
+  TRENDING,
+  GET_LOCATION
 } from './../actions';
 import { combineReducers } from 'redux';
 
@@ -50,10 +51,20 @@ const trendingVideos = (state = [], action) => {
   }
 };
 
+const getUserLocation = (state = null, action) => {
+  switch (action.type) {
+    case GET_LOCATION:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   videos: videosReducer,
   selectedVideo: selectedVideoReducer,
   recentVideos: recentlyPlayedVideos,
   sidebarToggle: toggleSidebar,
-  trendingVideos: trendingVideos
+  trendingVideos: trendingVideos,
+  location: getUserLocation
 });

@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Sidebar = ({ toggle }) => {
   return (
     <SidebarDiv style={toggle ? { transform: 'translateX(0px)' } : {}}>
       <ul>
-        <li>History</li>
+        <li>
+          <Link to="/">Trending</Link>
+        </li>
+        <li>
+          <Link to="/history">History</Link>
+        </li>
         <li>Saved</li>
       </ul>
     </SidebarDiv>
@@ -36,6 +42,10 @@ const SidebarDiv = styled.div`
     margin: 6px 0;
     font-size: 18px;
     box-shadow: 2px 2px 6px lightgray;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
   }
 `;
 

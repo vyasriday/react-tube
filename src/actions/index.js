@@ -5,6 +5,7 @@ export const GET_SELECTED_VIDEO = 'GET_SELECTED_VIDEO';
 export const SAVE_RECENTLY_PLAYED = 'SAVE_RECENTLY_PLAYED';
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 export const TRENDING = 'TRENDING';
+export const GET_LOCATION = 'GET_LOCATION';
 
 export const getVideos = term => {
   return async function(dispatch) {
@@ -31,7 +32,6 @@ export const getSelectedVideo = video => {
 };
 
 export const addToRecentlyPlayedVideos = video => {
-  console.log(video);
   return {
     type: SAVE_RECENTLY_PLAYED,
     payload: video
@@ -59,5 +59,12 @@ export const getTrendingVideos = () => {
 export const toggleSidebar = () => {
   return {
     type: TOGGLE_SIDEBAR
+  };
+};
+
+export const getLocation = position => {
+  return {
+    type: GET_LOCATION,
+    payload: position
   };
 };
