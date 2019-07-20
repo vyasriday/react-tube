@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/react-tube/static/css/main.fd459179.chunk.css",
-    "main.js": "/react-tube/static/js/main.dd09865e.chunk.js",
-    "main.js.map": "/react-tube/static/js/main.dd09865e.chunk.js.map",
+    "main.js": "/react-tube/static/js/main.d84bb7f1.chunk.js",
+    "main.js.map": "/react-tube/static/js/main.d84bb7f1.chunk.js.map",
     "runtime~main.js": "/react-tube/static/js/runtime~main.c08b557f.js",
     "runtime~main.js.map": "/react-tube/static/js/runtime~main.c08b557f.js.map",
-    "static/js/2.1742cef5.chunk.js": "/react-tube/static/js/2.1742cef5.chunk.js",
-    "static/js/2.1742cef5.chunk.js.map": "/react-tube/static/js/2.1742cef5.chunk.js.map",
+    "static/js/2.1abf0ccc.chunk.js": "/react-tube/static/js/2.1abf0ccc.chunk.js",
+    "static/js/2.1abf0ccc.chunk.js.map": "/react-tube/static/js/2.1abf0ccc.chunk.js.map",
     "index.html": "/react-tube/index.html",
-    "precache-manifest.5c0fb147b570902253f168a696ec41ef.js": "/react-tube/precache-manifest.5c0fb147b570902253f168a696ec41ef.js",
-    "service-worker.js": "/react-tube/service-worker.js",
-    "static/css/main.fd459179.chunk.css.map": "/react-tube/static/css/main.fd459179.chunk.css.map"
+    "precache-manifest.58f88d8376bbd9dfa76b9d98429b0103.js": "/react-tube/precache-manifest.58f88d8376bbd9dfa76b9d98429b0103.js",
+    "service-worker.js": "/react-tube/service-worker.js"
   }
 }
